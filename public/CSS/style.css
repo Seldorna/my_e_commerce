@@ -1,0 +1,233 @@
+/* General Reset */
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* Full Page Styling */
+body {
+    background-color: #f4f4f4;
+    margin: 0;
+}
+/* Navbar */
+.navbar {
+    background: #3fc4ce;
+    color: white;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+/* Navbar Container */
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+ 
+/* Navbar Brand */
+.navbar .brand {
+    font-size: 22px;
+    font-weight: bold;
+    text-decoration: none;
+    color: rgb(28, 114, 219);
+}
+/* Navbar Menu */
+.menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+.menu li {
+    margin-left: 20px;
+}
+.menu li a {
+    color: rgb(75, 32, 32);
+    text-decoration: none;
+    font-size: 16px;
+    padding: 8px 12px;
+    border-radius: 5px;
+    transition: background 0.3s ease-in-out;
+}
+
+.menu li a:hover {
+    background: #d0ca76;
+    color: rgb(58, 47, 47);
+    font-size: 20px;
+}
+
+/* Main Container */
+.container {
+    background: white;
+    padding: 30px;
+    margin: 20px auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    max-width: 1000px;
+}
+
+/* Content Styling */
+.content {
+    text-align: center;
+    padding: 20px;
+}
+
+/* Product Grid */
+.product-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    padding: 30px; /* Added padding for better spacing */
+    height: fit-content; /* I added this to ensure the grid height adjusts based on content */
+}
+
+.product-card {
+    background: white;
+    border: 1px solid #ddd;
+    padding: 25px;
+    width: 250px;
+    text-align: center;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    transition: transform 0.3s ease-in-out;
+    display: flex; /* Added to center content vertically */
+    flex-direction: column; /* Added to stack content vertically */
+    align-items: center; /* Center content horizontally */
+    justify-content: center; /* Center content vertically */
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+}
+
+.product-card img {
+    width: 100%;
+    height: auto; /*changed from fit-content to auto*/
+    max-height: 180px;
+    object-fit: cover;
+    border-radius: 5px;
+
+}
+
+
+
+
+/* Button Styling */
+button {
+    width: 100%;
+    padding: 10px;
+    background: #86ced2;
+    border: none;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.button:hover {
+    background: #eb8d5e;
+    font-size: 20px;
+}
+
+/* Table Styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+th, td {
+    padding: 12px 16px;
+    border-bottom: 1px solid #eee;
+    text-align: left;
+}
+th {
+    background: #3fc4ce;
+    color: white;
+    font-weight: bold;
+}
+tr:last-child td {
+    border-bottom: none;
+}
+
+/* Status Badge */
+.status-badge {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-size: 14px;
+    color: #fff;
+}
+.status-pending { background: #f0ad4e; }
+.status-confirmed { background: #5cb85c; }
+.status-rejected { background: #d9534f; }
+
+/* Footer */
+.footer {
+    background: #222;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    margin-top: 30px;
+    font-size: 14px;
+}
+
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.error {
+    color: red;
+}
+
+.success {
+    color: green;
+}
+
+
+
+/* Responsive Navbar */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .menu {
+        flex-direction: column;
+        padding-top: 10px;
+    }
+
+    .menu li {
+        margin: 10px 0;
+    }
+}
+/* Responsive Product Grid */
+@media (max-width: 768px) {
+    .product-card {
+        width: 45%;
+    }
+}
+
+@media (max-width: 480px) {
+    .product-card {
+        width: 100%;
+    }
+}
