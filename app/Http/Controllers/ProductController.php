@@ -173,6 +173,19 @@ class ProductController extends Controller
         }
         $products = $query->get();
         return view('homepage', compact('products'));
-    }
+        }
+        public function checkout_cart(Request $request) {
+        $cart = session('cart', []);
+        foreach ($cart as $product_id => $quantity) {
+            Purchase::create([
+                'user_id' => auth()->id(),
+                'product_id' => $product_id,
+                'quantity' => $quantity,
+                'status' => 'pending',
+            ]);
+        }
+        session()->forget('cart');
+        return redirect()->route('customer_purchases')->with('message', 'Purchase requests submitted!');
+        }
     }
    

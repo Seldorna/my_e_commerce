@@ -9,12 +9,12 @@
             <input type="number" name="quantity" value="{{ $cart[$product->id] }}" min="1" class="form-control" style="width: 80px; display: inline;">
             <button type="submit">Update</button>
         </form>
-        <form method="POST" action="{{ route('purchase_product', $product->id) }}">
-            @csrf
-            <button type="submit">Purchase</button>
-        </form>
     </div>
 @endforeach
+<form method="POST" action="{{ route('checkout_cart') }}" style="margin-top: 20px;">
+    @csrf
+    <button type="submit">Purchase All</button>
+</form>
 @else
     <p>Your cart is empty.</p>
 @endif

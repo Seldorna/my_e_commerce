@@ -37,5 +37,6 @@ Route::middleware('auth')->group(function () {
     Route::post('/store_admin', [UserController::class, 'store_admin'])->name('store_admin');
     Route::get('/admin_purchases', [ProductController::class, 'admin_purchases'])->name('admin_purchases');
     Route::get('/customer_purchases', [ProductController::class, 'customer_purchases'])->name('customer_purchases');
-
+    Route::post('/checkout_cart', [ProductController::class, 'checkout_cart'])->name('checkout_cart');
+    
 });
