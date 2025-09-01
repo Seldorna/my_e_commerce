@@ -16,7 +16,6 @@ Route::post('/store_user', [UserController::class, 'store_user'])->name('store_u
 Route::get('/login', [UserController::class, 'login'])->name('login');
 Route::post('/login_user', [UserController::class, 'login_user'])->name('login_user');
 
-
 // Protected routes
 Route::middleware('auth')->group(function () {
     Route::get('/home_page', [ProductController::class, 'homepage'])->name('homepage');
@@ -25,18 +24,20 @@ Route::middleware('auth')->group(function () {
     Route::post('/update_cart_quantity/{id}', [ProductController::class, 'update_cart_quantity'])->name('update_cart_quantity');
     Route::get('/service_page', [MainController::class, 'servicepage'])->name('servicepage');
     Route::get('product_form', [ProductController::class, 'product_form'])->name('product_form');
-    Route::post('/inka', [ProductController::class, 'store_product'])->name('register');
+    Route::post('/inka', [ProductController::class, 'store_product'])->name('reister');
     Route::get('/all_products', [ProductController::class, 'all_products'])->name('all_products');
     Route::get('/delete_product/{product_id}', [ProductController::class, 'delete_product'])->name('delete_product');
     Route::get('/edit_product/{id}', [ProductController::class, 'edit_product'])->name('edit_product');
     Route::post('/update_product/{id}', [ProductController::class, 'update_product'])->name('update_product');
     Route::post('/sell_product/{id}', [ProductController::class, 'sell_product'])->name('sell_product');
     Route::post('/purchase_product/{id}', [ProductController::class, 'purchase_product'])->name('purchase_product');
+    Route::post('/update_purchase_status/{id}', [ProductController::class, 'update_purchase_status'])->name('update_purchase_status');
     Route::get('/logout', [UserController::class, 'logout'])->name('logout');
-    Route::get('/admin_registration_form', [UserController::class, 'admin_registration_form'])->name('admin_registration_form');
-    Route::post('/store_admin', [UserController::class, 'store_admin'])->name('store_admin');
     Route::get('/admin_purchases', [ProductController::class, 'admin_purchases'])->name('admin_purchases');
     Route::get('/customer_purchases', [ProductController::class, 'customer_purchases'])->name('customer_purchases');
     Route::post('/checkout_cart', [ProductController::class, 'checkout_cart'])->name('checkout_cart');
-    
+    Route::get('/admin_registration_form', [UserController::class, 'admin_registration_form'])->name('admin_registration_form');
+    Route::post('/store_admin', [UserController::class, 'store_admin'])->name('store_admin');
+
+
 });
