@@ -21,15 +21,20 @@
             <td>{{ $purchase->quantity }}</td>
             <td>{{ ucfirst($purchase->status) }}</td>
             <td>{{ $purchase->created_at->format('Y-m-d H:i') }}</td>
-            <td>
-                @if($purchase->status == 'pending')
-                <form method="POST" action="{{ route('sell_product', $purchase->product->id) }}">
-                    @csrf
-                    <input type="hidden" name="quantity" value="{{ $purchase->quantity }}">
-                    <button type="submit">Approve & Sell</button>
-                </form>
-                @endif
-            </td>
+                <td>
+                    @if($purchase->status == 'pending')
+                    <form method="POST" action="{{ route('update_purchase_status', $purchase->id) }}">
+                        @csrf
+                        <select name="status" class="admin-filter-row-select" required onchange="this.form.submit()">
+                            <option value="">Choose Action</option>
+                            <option value="confirmed">Sell</option>
+                            <option value="rejected">Decline</option>
+                        </select>
+                    </form>
+                    @else
+                        <span class="status-badge status-{{ $purchase->status }}">{{ ucfirst($purchase->status) }}</span>
+                    @endif
+                </td>
         </tr>
         @endforeach
     </tbody>
