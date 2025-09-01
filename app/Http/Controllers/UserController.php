@@ -44,7 +44,7 @@ class UserController extends Controller
                      ->first();
          if ($user && Hash::check($validated_data['password'], $user->password)) {
              Auth::login($user);
-             return redirect()->route('homepage');
+             return redirect()->route('welcome');
          } else {
              return redirect()->back()->with('message', 'Invalid LOGIN');
          }
@@ -60,10 +60,11 @@ class UserController extends Controller
                 'name' => 'required',
                 'email' => 'required',
                 'password' => 'required',
-                'role' => 'admin'
+                'role' => 'required'
             ]
         );
         $validated_data['password'] = Hash::make($request->password);
+        $validated_data['role'] = 'admin';
         User::create($validated_data);
         return redirect()->back()->with('message', 'Admin Account Created');
     }

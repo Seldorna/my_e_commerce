@@ -136,6 +136,31 @@ class ProductController extends Controller
         }
     }
 
+        // Admin updates purchase status (Sell/Decline)
+        public function update_purchase_status(Request $request, $id) {
+            if (auth()->user()->role !== 'admin') {
+                abort(403, 'Unauthorized');
+            }
+            $purchase = Purchase::findOrFail($id);
+            $status = $request->input('status');
+            if (!in_array($status, ['confirmed', 'rejected'])) {
+                return redirect()->back()->with('error', 'Invalid status!');
+            }
+            $purchase->status = $status;
+            $purchase->save();
+            // If confirmed, reduce product quantity
+            if ($status === 'confirmed') {
+                $product = $purchase->product;
+                if ($product->quantity >= $purchase->quantity) {
+                    $product->quantity -= $purchase->quantity;
+                    $product->save();
+                } else {
+                    return redirect()->back()->with('error', 'Not enough stock to confirm sale!');
+                }
+            }
+            return redirect()->back()->with('message', 'Purchase status updated!');
+        }
+
     public function purchase_product(Request $request, $id) {
         $product = Product::findOrFail($id);
         $quantity = $request->quantity;
