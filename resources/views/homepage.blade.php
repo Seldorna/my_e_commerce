@@ -1,8 +1,8 @@
-@extends('layout.mainpage');
+@extends('layout.mainpage')
 @section('content')
 
 <h1>Cella's Supermarket</h1>
-<form method="GET" action="{{ route('homepage') }}" style="margin-bottom: 20px;">
+<form method="GET" action="{{ route('homepage') }}" class="filter-container">
     <label for="category">Filter by Category:</label>
     <select name="category" id="category" onchange="this.form.submit()">
         <option value="">All</option>
@@ -16,7 +16,7 @@
     @foreach ($products as $one_product)
         @if($one_product->quantity > 0)
         <div class="product-card">
-             <img 
+            <img 
                 src="{{ asset('image/' . $one_product->image) }}" 
                 alt="{{ $one_product->name }}"/>
                 <h4>{{ $one_product->name }}</h4>
