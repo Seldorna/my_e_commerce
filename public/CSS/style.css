@@ -1,3 +1,57 @@
+/* Login form filter styling */
+.login-filter-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+.login-filter-row label {
+    font-weight: bold;
+    color: #555;
+    font-size: 16px;
+}
+.login-filter-row select {
+    padding: 10px 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    cursor: pointer;
+    font-size: 16px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-image: url('data:image/svg+xml;charset=UTF-8,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23333"%3E%3Cpath d="M7 10l5 5 5-5H7z"/%3E%3C/svg%3E');
+    background-repeat: no-repeat;
+    background-position: right 15px center;
+    background-size: 12px;
+}
+/* Admin registration form filter styling */
+.admin-filter-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+.admin-filter-row label {
+    font-weight: bold;
+    color: #555;
+    font-size: 16px;
+}
+.admin-filter-row select {
+    padding: 10px 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    cursor: pointer;
+    font-size: 16px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-image: url('data:image/svg+xml;charset=UTF-8,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23333"%3E%3Cpath d="M7 10l5 5 5-5H7z"/%3E%3C/svg%3E');
+    background-repeat: no-repeat;
+    background-position: right 15px center;
+    background-size: 12px;
+}
 /* General Reset */
 * {
     box-sizing: border-box;
@@ -8,12 +62,12 @@
 
 /* Full Page Styling */
 body {
-    background-color: #f4f4f4;
+    background-color: #e6e3e3;
     margin: 0;
 }
 /* Navbar */
 .navbar {
-    background: #3fc4ce;
+    background: #b9b8b8;
     color: white;
     padding: 15px 20px;
     display: flex;
@@ -58,9 +112,13 @@ body {
 }
 
 .menu li a:hover {
-    background: #d0ca76;
+    background: #39b6f9;
     color: rgb(58, 47, 47);
     font-size: 20px;
+}
+.menu li a.active {
+    background: #3fc4ce;
+    color:rgb(75, 32, 32);
 }
 
 /* Main Container */
@@ -130,10 +188,11 @@ button {
     font-size: 16px;
     cursor: pointer;
     border-radius: 5px;
+    box-sizing: border-box;
 }
 
 .button:hover {
-    background: #eb8d5e;
+    background: #68cbef;
     font-size: 20px;
 }
 
@@ -173,6 +232,110 @@ tr:last-child td {
 .status-confirmed { background: #5cb85c; }
 .status-rejected { background: #d9534f; }
 
+/* Add to your style.css */
+
+.welcome-container {
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.welcome-container h1 {
+    color: #333;
+    margin-bottom: 20px;
+    font-size: 2.5em;
+}
+
+.welcome-container p {
+    color: #555;
+    font-size: 1.1em;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+.category-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px; /* Space between items */
+    margin-bottom: 40px;
+}
+
+.category-item {
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    padding: 25px;
+    width: 280px; /* Fixed width for category cards */
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden; /* Ensures image doesn't overflow */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.category-item:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+}
+
+.category-item h3 {
+    color: #3fc4ce;
+    margin-top: 15px;
+    margin-bottom: 10px;
+    font-size: 1.6em;
+}
+
+.category-item p {
+    color: #666;
+    font-size: 0.95em;
+    margin-bottom: 0; /* Reset default paragraph margin */
+}
+/* Add to your style.css */
+
+.category-image {
+    width: 100%;
+    max-height: 180px;
+    object-fit: cover; /* Ensures the image covers the area without distortion */
+    border-radius: 8px; 
+    margin-bottom: 15px;
+}
+/* Styling for the product filter form */
+.filter-container {
+    padding: 15px 25px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-bottom: 25px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* Style for the label and select box */
+.filter-container label {
+    font-weight: bold;
+    color: #555;
+    font-size: 16px;
+}
+
+.filter-container select {
+    padding: 10px 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    cursor: pointer;
+    font-size: 16px;
+    -webkit-appearance: none; /* Removes default browser styling for dropdown */
+    -moz-appearance: none;
+    appearance: none;
+    background-image: url('data:image/svg+xml;charset=UTF-8,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23333"%3E%3Cpath d="M7 10l5 5 5-5H7z"%3E%3C/path%3E%3C/svg%3E');
+    background-repeat: no-repeat;
+    background-position: right 15px center;
+    background-size: 12px;
+}
+
 /* Footer */
 .footer {
     background: #222;
@@ -181,8 +344,17 @@ tr:last-child td {
     padding: 15px;
     margin-top: 30px;
     font-size: 14px;
+    position: relative;
 }
-
+.footer .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    align-content: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: black;
+}
 
 input {
     width: 100%;
@@ -229,5 +401,17 @@ input {
 @media (max-width: 480px) {
     .product-card {
         width: 100%;
+    }
+}
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .category-item {
+        width: 45%; /* Two items per row on smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .category-item {
+        width: 90%; /* One item per row on very small screens */
     }
 }
